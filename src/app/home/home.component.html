@@ -1,0 +1,96 @@
+<div class="wrap">
+  <div class="left">
+    <section class="card info">
+      <div class="titleRow">
+        <div>
+          <div class="title">{{ settings.campaignTitle }}</div>
+          <div class="subtitle">{{ settings.campaignSubtitle }}</div>
+        </div>
+      </div>
+
+      <!-- <div class="bulletRow">
+        <div class="bullet" *ngFor="let bullet of settings.bullets">
+          <span class="dot"></span>
+          <span>{{ bullet }}</span>
+        </div>
+      </div> -->
+    </section>
+
+    <section class="card slideshow" aria-label="Foto slideshow">
+      <div class="slides">
+        <div
+          class="slide"
+          *ngFor="let slide of settings.slides; let i = index"
+          [class.active]="i === activeIndex"
+          [style.backgroundImage]="slideBackground(slide)"
+        ></div>
+      </div>
+
+      <div class="slideCaption">
+        <div>
+          <div class="captionTitle">{{ activeSlide.title || ' ' }}</div>
+          <div class="captionSub">{{ activeSlide.sub || ' ' }}</div>
+        </div>
+        <div class="slideCounter">{{ activeIndex + 1 }} / {{ settings.slides.length }}</div>
+      </div>
+    </section>
+  </div>
+
+  <aside class="card right">
+    <div class="rightHeader">
+      <div class="rightHeaderTop">
+        <div class="rightTitle">Inzameling voortgang</div>
+        <img src="images/logo.png" alt="Moskee logo" class="rightLogo" />
+      </div>
+    </div>
+
+    <div class="meterWrap">
+      <div class="meter">
+        <div class="barCol">
+          <div class="bar" aria-label="Voortgangsbalk">
+            <div class="fill" [style.height.%]="clampedPercent"></div>
+            <div class="ticks" aria-hidden="true">
+              <div class="tick" style="bottom: 20%"></div>
+              <div class="tick" style="bottom: 40%"></div>
+              <div class="tick" style="bottom: 60%"></div>
+              <div class="tick" style="bottom: 80%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="labelsCol">
+          <div>
+            <div class="bigAmount">{{ formatMoney(settings.raisedAmount) }}</div>
+            <div class="smallLabel">Ingezameld</div>
+
+            <div class="pillRow">
+              <div class="pill">Doel: {{ formatMoney(settings.goalAmount) }}</div>
+              <div class="pill">{{ percent | number: '1.0-0' }}%</div>
+              <div class="pill">Nog: {{ formatMoney(remainingAmount) }}</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="bigAmount muted">{{ formatMoney(settings.goalAmount) }}</div>
+            <div class="smallLabel">Doelbedrag</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qrBox" aria-label="QR code om te doneren">
+        <img [src]="qrUrl" alt="Scan om te doneren" />
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footerStatus">
+        <span class="liveDot"></span>
+        <span class="liveText">{{ settings.footerLine1 }}</span>
+      </div>
+      <div class="footerStatus">
+        <span class="liveDot"></span>
+        <span class="liveText">{{ settings.footerLine2 }}</span>
+      </div>
+    </div>
+  </aside>
+</div>

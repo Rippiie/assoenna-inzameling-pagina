@@ -1,0 +1,113 @@
+<div class="admin">
+  <header class="adminHeader">
+    <div>
+      <h1>Beheer</h1>
+      <p>Pas de instellingen aan voor de inzameling pagina.</p>
+    </div>
+    <div class="actions">
+      <button class="ghost" type="button" (click)="reset()">Herlaad</button>
+      <button class="primary" type="button" (click)="save()" [disabled]="saving">
+        {{ saving ? 'Opslaan...' : 'Opslaan' }}
+      </button>
+    </div>
+  </header>
+
+  <div class="status" *ngIf="status">{{ status }}</div>
+
+  <section class="panel">
+    <h2>Teksten</h2>
+    <label>
+      Titel
+      <input type="text" [(ngModel)]="model.campaignTitle" />
+    </label>
+    <label>
+      Subtitel
+      <textarea rows="3" [(ngModel)]="model.campaignSubtitle"></textarea>
+    </label>
+    <div class="grid-2">
+      <label>
+        Bullet 1
+        <input type="text" [(ngModel)]="model.bullets[0]" />
+      </label>
+      <label>
+        Bullet 2
+        <input type="text" [(ngModel)]="model.bullets[1]" />
+      </label>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Bedragen</h2>
+    <div class="grid-3">
+      <label>
+        Doelbedrag
+        <input type="number" [(ngModel)]="model.goalAmount" />
+      </label>
+      <label>
+        Ingezameld
+        <input type="number" [(ngModel)]="model.raisedAmount" />
+      </label>
+      <label>
+        Valuta
+        <input type="text" [(ngModel)]="model.currency" />
+      </label>
+    </div>
+    <label>
+      Locale
+      <input type="text" [(ngModel)]="model.locale" />
+    </label>
+  </section>
+
+  <section class="panel">
+    <h2>Footer</h2>
+    <label>
+      Regel 1
+      <input type="text" [(ngModel)]="model.footerLine1" />
+    </label>
+    <label>
+      Regel 2
+      <input type="text" [(ngModel)]="model.footerLine2" />
+    </label>
+  </section>
+
+  <section class="panel">
+    <h2>QR code</h2>
+    <label>
+      Doneerlink
+      <input type="text" [(ngModel)]="model.donationUrl" />
+    </label>
+  </section>
+
+  <section class="panel">
+    <h2>Slideshow</h2>
+    <label>
+      Wissel elke (seconden)
+      <input type="number" [(ngModel)]="model.slideSeconds" />
+    </label>
+
+    <div class="slides">
+      <div class="slideItem" *ngFor="let slide of model.slides; let i = index">
+        <div class="slideHeader">
+          <h3>Slide {{ i + 1 }}</h3>
+          <button class="ghost" type="button" (click)="removeSlide(i)">Verwijderen</button>
+        </div>
+        <div class="grid-3">
+          <label>
+            Afbeelding
+            <input type="text" [(ngModel)]="slide.src" placeholder="images/foto1.png" />
+          </label>
+          <label>
+            Titel
+            <input type="text" [(ngModel)]="slide.title" />
+          </label>
+          <label>
+            Subtitel
+            <input type="text" [(ngModel)]="slide.sub" />
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <button class="ghost" type="button" (click)="addSlide()">Slide toevoegen</button>
+  </section>
+</div>

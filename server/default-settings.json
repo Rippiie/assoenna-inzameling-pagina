@@ -1,0 +1,23 @@
+{
+  "campaignTitle": "Inzameling bouw Moskee Assoenna",
+  "campaignSubtitle": "De profeet zei: 'Wie een moskee bouwt en daarmee het aangezicht van Allaah wilt, Allaah bouwt voor hem hetzelfde in het Paradijs.' Bukhari en Muslim",
+  "bullets": [
+    "Contant en pin: bij de vrijwilligers",
+    "Deel met familie en vrienden"
+  ],
+  "currency": "EUR",
+  "locale": "nl-NL",
+  "goalAmount": 250000,
+  "raisedAmount": 7350,
+  "donationUrl": "https://voorbeeld.nl/doneren",
+  "slideSeconds": 15,
+  "slides": [
+    { "src": "images/foto1.png", "title": "Bovenaanzicht", "sub": "" },
+    { "src": "images/foto2.png", "title": "Zijaanzicht - voorzijde", "sub": "Dank voor jullie steun" },
+    { "src": "images/foto3.png", "title": "Zijaanzicht - Cremerstraat", "sub": "Dank voor jullie steun" },
+    { "src": "images/foto4.png", "title": "Zijaanzicht - Cremerstraat", "sub": "Dank voor jullie steun" },
+    { "src": "images/foto5.png", "title": "Zijaanzicht - Majellapark", "sub": "Elke bijdrage telt" }
+  ],
+  "footerLine1": "Doneren kan via www.islamu.nl/doneren",
+  "footerLine2": "NL43ABNA0499082052 t.n.v. Stichting ASSOENNA ISL"
+}
